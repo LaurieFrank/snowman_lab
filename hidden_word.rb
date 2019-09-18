@@ -1,11 +1,10 @@
 class HiddenWord
 
-  attr_accessor :word
+  attr_accessor :word, :word_array
 
-  def initialize(word)
+  def initialize(word, word_array)
     @word = word
-    @word_array = []
-    @guesses
+    # @word_array = word.tr("^ ", "*")
   end
 
   def split_word()
@@ -15,27 +14,37 @@ class HiddenWord
     return @word_array
   end
 
-  def does_word_include_letter(guess)
-    p @word_array
-    for letter in @word_array
-      if letter.include?(guess)
-        return true
-      end
-    end
+  def reveal_letter(letter)
+    return @word_array if @word.include?(letter) == false
+    @word.split("").each_index{|index| @word_array[index] = @word[index] if @word[index] == letter}
+    return @word_array
   end
+​
 
-  def display_true_characters(guess_result)
-    # @word_array.does_word_include_letter(guess_result)
-    # for letter in @word_array
-    #   if guess_result == true
-    #     return guess_result
-    # #   end
-    # end
-    #   else
-    #     letter == "*"
-    return @word_array.tr("^ ", "*") if @word.include?(guess_result) == false
 
-  end
+
+  #
+  # def does_word_include_letter(guess)
+  #   p @word_array
+  #   for letter in @word_array
+  #     if letter.include?(guess)
+  #       return true
+  #     end
+  #   end
+  # end
+  #
+  # def display_true_characters(guess_result)
+  #   # @word_array.does_word_include_letter(guess_result)
+  #   # for letter in @word_array
+  #   #   if guess_result == true
+  #   #     return guess_result
+  #   # #   end
+  #   # end
+  #   #   else
+  #   #     letter == "*"
+  #   return @word_array.tr("^ ", "*") if @word.include?(guess_result) == false
+
+  # end
 
 end
 

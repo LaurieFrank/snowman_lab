@@ -16,18 +16,23 @@ class TestHiddenWord < MiniTest::Test
     assert_equal(["m", "e", "l", "t", "i", "n", "g"], @hidden_word.split_word(@hidden_word.word))
   end
 
-  def test_is_letter_in_word()
-    @hidden_word.split_word(@hidden_word.word)
-    result = @hidden_word.does_word_include_letter("m")
-    assert_equal(true, result)
+  def test_reveal_letter__e
+   @hidden_word.reveal_letter("e")
+   assert_equal("*e*****", @hidden_word.word_array)
   end
 
-  def test_display_true_characters()
-    split_word = @hidden_word.split_word(@hidden_word.word)
-    # guess_result = @hidden_word.does_word_include_letter("m")
-    actual_result = @hidden_word.display_true_characters(guess_result)
-    assert_equal("m******", actual_result)
-  end
+  # def test_is_letter_in_word()
+  #   @hidden_word.split_word(@hidden_word.word)
+  #   result = @hidden_word.does_word_include_letter("m")
+  #   assert_equal(true, result)
+  # end
+  #
+  # def test_display_true_characters()
+  #   split_word = @hidden_word.split_word(@hidden_word.word)
+  #   # guess_result = @hidden_word.does_word_include_letter("m")
+  #   actual_result = @hidden_word.display_true_characters(guess_result)
+  #   assert_equal("m******", actual_result)
+  # end
 
 end
 
