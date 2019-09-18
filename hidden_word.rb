@@ -6,4 +6,7 @@ class HiddenWord
     @word = word
   end
 
+  def split_word(word)
+    word.split("")
+  end
 end

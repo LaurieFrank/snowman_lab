@@ -15,4 +15,9 @@ class TestPlayer < MiniTest::Test
   def test_player_lives
     assert_equal(6, @player.lives)
   end
+
+  def test_reduce_lives
+    @player.remove_life()
+    assert_equal(5, @player.lives)
+  end
 end
